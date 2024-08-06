@@ -6,24 +6,28 @@ class Library
 {
 private:
     string *books; // dynamically allocated array of strings
-    // vector<string> books; // safer and more convenient as it doesn't require to manually delete
     int numBooks;
 
 public:
-    // Constructor
-    Library(string *books, int numBooks)
+    // Dynamic constructor
+    Library(int numBooks)
     {
-        this->books = books;
         this->numBooks = numBooks;
+        books = new string[numBooks];
     }
     // Destructor
     ~Library()
     {
         delete[] books;
     }
-    void Display()
+    void setBook(int index, const string &book)
     {
-        for (int i = 0; i <= numBooks - 1; i++)
+
+        books[index] = book;
+    }
+    void display()
+    {
+        for (int i = 0; i < numBooks; i++)
         {
             cout << books[i] << " ";
         }
@@ -33,14 +37,15 @@ public:
 
 int main()
 {
-    int n;
-    cin >> n;
-    string *books = new string[n];
-    for (int i = 0; i <= n - 1; i++)
+    int numBooks;
+    cin >> numBooks;
+    Library l1(numBooks); // Create object with dynamic constructor
+    for (int i = 0; i < numBooks; i++)
     {
-        cin >> books[i];
+        string book;
+        cin >> book;
+        l1.setBook(i, book);
     }
-    Library l1(books, n);
-    l1.Display();
+    l1.display();
     return 0;
 }
