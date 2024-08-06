@@ -1,3 +1,5 @@
+/* Program to display time*/
+
 #include <iostream>
 using namespace std;
 
@@ -14,6 +16,19 @@ public:
         this->minute = minute;
         this->second = second;
     }
+
+    // standard way
+    // Time(int hour = 0, int minute = 0, int second = 0)
+    //     : hour(hour), minute(minute), second(second)
+    // {
+    // }
+
+    // function declaration and definition both inside
+    // void display()
+    // {
+    //     cout << hour << " " << minute << " " << second << endl;
+    // }
+    // funciton declaration inside and definition outside
     void display();
 };
 
