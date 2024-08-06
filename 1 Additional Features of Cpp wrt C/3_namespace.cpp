@@ -26,6 +26,6 @@ int main()
     cin >> Square::num;
     cin >> Cube::num;
     cout << Square::fun(Cube::num) << endl;
-    cout << Cube::fun(Square::num);
+    cout << Cube::fun(Square::num) << endl;
     return 0;
 }
