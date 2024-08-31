@@ -1,30 +1,29 @@
 #include <iostream>
 using namespace std;
 
-class constantEg
+class MyClass
 {
 private:
     int data;
 
 public:
-    constantEg() : data(0) {}
-    constantEg(int n) : data(n) {}
-    void setdata(int n)
+    MyClass(int n) : data(n) {}
+    void setData(int n)
     {
         data = n;
     }
-    void showdata() const // constant member function
+    void getData() const // constant member function
     {
         cout << "data=" << data << endl;
     }
 };
 int main()
 {
-    const constantEg t1(5); // constant object
-    constantEg t2(7);
-    // t1.setdata(9); // Error, calling non constant function
-    t1.showdata(); // Ok, constant function
-    t2.setdata(4); // Ok
-    t2.showdata(); // Ok
+    const MyClass t1(5); // constant object
+    MyClass t2(7);
+    // t1.setData(9); // Error, calling non constant function
+    t1.getData();  // Ok, constant function
+    t2.setData(4); // Ok
+    t2.getData();  // Ok
     return 0;
 }
