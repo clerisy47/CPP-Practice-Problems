@@ -1,32 +1,33 @@
 #include <iostream>
 using namespace std;
 
-class Data
+class MyClass
 {
 private:
     int ctr;
 
 public:
-    Data(int ctr = 0) : ctr(ctr) {}
+    MyClass(int ctr = 0) : ctr(ctr) {}
+
+    int getCtr()
+    {
+        return ctr;
+    }
     // prefix
-    friend void operator++(Data &d)
+    friend void operator++(MyClass &d)
     {
         ++d.ctr;
     }
     // postfix
-    friend void operator++(Data &d, int) // int is a dummy variable
+    friend void operator++(MyClass &d, int) // int is a dummy variable
     {
         d.ctr++;
-    }
-    int getCtr()
-    {
-        return ctr;
     }
 };
 
 int main()
 {
-    Data d(0);
+    MyClass d(0);
     d++;
     cout << d.getCtr() << endl;
     ++d;
