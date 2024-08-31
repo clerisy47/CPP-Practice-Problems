@@ -10,17 +10,16 @@ private:
 
 public:
     // must use non-member function
-    friend ostream &operator<<(ostream &os, Person &p)
-    {
-        os << p.name << " " << p.age;
-        return os;
-    }
-
-    // must use non-member function
     friend istream &operator>>(istream &is, Person &p)
     {
         is >> p.name >> p.age;
         return is;
+    }
+    // must use non-member function
+    friend ostream &operator<<(ostream &os, Person &p)
+    {
+        os << p.name << " " << p.age;
+        return os;
     }
 };
 
