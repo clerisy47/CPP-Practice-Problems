@@ -5,7 +5,7 @@ using namespace std;
 class MyString
 {
 private:
-    char *s;
+    char *str;
     int size;
 
 public:
@@ -13,16 +13,16 @@ public:
     MyString(char *str = "")
     {
         size = strlen(str);
-        s = new char[size + 1];
-        strcpy(s, str);
+        str = new char[size + 1];
+        strcpy(str, str);
     }
     ~MyString()
     {
-        delete[] s;
+        delete[] str;
     }
     char *getS()
     {
-        return s;
+        return str;
     }
     int getSize()
     {
@@ -31,7 +31,7 @@ public:
     friend MyString operator+(MyString &ms1, MyString &ms2)
     {
         char *temp = new char[ms1.size + ms2.size + 1];
-        strcpy(temp, strcat(ms1.s, ms2.s));
+        strcpy(temp, strcat(ms1.str, ms2.str));
         MyString result(temp);
         return result;
     }
@@ -39,7 +39,7 @@ public:
 
 int main()
 {
-    MyString a("Object"), b(" Oriented");
+    MyString a("Object "), b("Oriented");
     MyString c = a + b;
     cout << c.getS() << endl;
     return 0;
