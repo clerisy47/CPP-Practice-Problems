@@ -36,7 +36,8 @@ public:
         }
 
         char ch;
-        srcFile >> resetiosflags(ios::skipws);
+        srcFile.unsetf(ios::skipws);
+        // srcFile >> resetiosflags(ios::skipws);
         while (srcFile >> ch)
         {
             dstFile << ch;
