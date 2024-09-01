@@ -10,7 +10,6 @@ public:
     {
         cout << "Base class show function." << endl;
     }
-    virtual ~Base() {} // in polymorphism always make the destructor virtual
 };
 
 class Derived1 : public Base
@@ -64,6 +63,7 @@ int main()
     Derived2 d2;
     Base b1;
     b = &d1;
+    cout << "Type: " << typeid(*b).name() << endl;
     b->show();
 
     b = &d2;
