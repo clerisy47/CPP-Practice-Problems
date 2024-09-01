@@ -28,7 +28,6 @@ protected:
 public:
     void input()
     {
-        Student::input();
         cin >> oop;
         cin >> toc;
         cin >> maths;
@@ -52,6 +51,7 @@ protected:
 public:
     void input()
     {
+        Student::input();
         Test::input();
     }
     void calculate()
