@@ -6,41 +6,45 @@ class MyString
 {
 private:
     char *str;
-    int size;
 
 public:
     // dynamic constructor
-    MyString(char *str = "")
+    MyString()
     {
-        size = strlen(str);
-        str = new char[size + 1];
-        strcpy(str, str);
+        str = new char[1];
+        str[0] = '\0';
     }
+
     ~MyString()
     {
         delete[] str;
     }
-    char *getS()
+
+    void input()
     {
-        return str;
+        cin >> str;
     }
-    int getSize()
+
+    void display()
     {
-        return size;
+        cout << str << endl;
     }
-    friend MyString operator+(MyString &ms1, MyString &ms2)
+
+    friend MyString operator+(MyString &s1, MyString &s2)
     {
-        char *temp = new char[ms1.size + ms2.size + 1];
-        strcpy(temp, strcat(ms1.str, ms2.str));
-        MyString result(temp);
+        MyString result;
+        result.str = new char[strlen(s1.str), strlen(s2.str)];
+        strcpy(result.str, strcat(s1.str, s2.str));
         return result;
     }
 };
 
 int main()
 {
-    MyString a("Object "), b("Oriented");
+    MyString a, b;
+    a.input();
+    b.input();
     MyString c = a + b;
-    cout << c.getS() << endl;
+    c.display();
     return 0;
 }
