@@ -1,9 +1,7 @@
-// Namespace example
-
 #include <iostream>
 using namespace std;
 
-namespace Square
+namespace square
 {
     int num;
     int fun(int num)
@@ -12,7 +10,7 @@ namespace Square
     }
 }
 
-namespace Cube
+namespace cube
 {
     int num;
     int fun(int num)
@@ -23,9 +21,9 @@ namespace Cube
 
 int main()
 {
-    cin >> Square::num;
-    cin >> Cube::num;
-    cout << Square::fun(Cube::num) << endl;
-    cout << Cube::fun(Square::num) << endl;
+    cin >> square::num;
+    cin >> cube::num;
+    cout << square::fun(square::num) << endl;
+    cout << cube::fun(cube::num) << endl;
     return 0;
 }
