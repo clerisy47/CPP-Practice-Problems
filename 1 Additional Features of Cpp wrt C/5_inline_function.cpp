@@ -12,6 +12,6 @@ int main()
 {
     int salary;
     cin >> salary;
-    cout<<"Salary after tax deduction "<<netPayment(salary)<<endl;
+    cout << "Salary after tax deduction " << netPayment(salary) << endl;
     return 0;
 }
