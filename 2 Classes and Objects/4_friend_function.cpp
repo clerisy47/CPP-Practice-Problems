@@ -1,35 +1,34 @@
 #include <iostream>
 using namespace std;
 
-class ClassA
+class myClass
 {
 private:
-    int dataA;
+    int data;
 
 public:
-    ClassA() : dataA(0) {}
+    myClass() : data(0) {}
 
-    friend void setter(ClassA &obj, int value);
-    friend void getter(const ClassA &obj);
+    int getData()
+    {
+        return data;
+    }
+
+    friend void setData(myClass &obj, int value);
 };
 
 // Friend function definition
-void setter(ClassA &obj, int value)
+void setData(myClass &obj, int value)
 {
-    obj.dataA = value;
-}
-
-void getter(const ClassA &obj)
-{
-    cout << "ClassA private member: " << obj.dataA << endl;
+    obj.data = value;
 }
 
 int main()
 {
-    ClassA objA;
+    myClass objA;
 
-    setter(objA, 42);
-    getter(objA);
+    setData(objA, 42);
+    objA.getData();
 
     return 0;
 }
