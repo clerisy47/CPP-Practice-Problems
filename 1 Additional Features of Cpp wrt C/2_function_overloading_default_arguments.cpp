@@ -1,37 +1,25 @@
-// function overloading convert function
-
 #include <iostream>
+#include <cmath>
 using namespace std;
-int feet;
 
-void convert(int feet, int &inch)
+int area(int l, int b) // can't provide default argument to this function as it will be ambiguious to third function
 {
-    inch = feet * 12;
+    return l * b;
 }
 
-int convert(int feet)
+int area(int r)
 {
-    return feet * 12;
+    return M_PI * r * r;
 }
 
-int convert()
+double area(double r = 1.0)
 {
-    return feet * 12;
-}
-
-// while overloading funciton with default argument make sure they don't cause ambiguity
-double convert(double feet, double inch = 0.0)
-{
-    inch = feet * 12.0;
+    return M_PI * r * r;
 }
 
 int main()
 {
-    int inch;
-    cin >> feet;
-    convert(feet, inch);
-    cout << "Two arguments " << inch << endl;
-    cout << "One argument " << convert(feet) << endl;
-    cout << "No arguments " << convert() << endl;
+    int l = 5, b = 6, r = 5.4;
+    cout << area(l, b) << " " << area(r) << " " << area() << " " << area(r) << endl;
     return 0;
 }
