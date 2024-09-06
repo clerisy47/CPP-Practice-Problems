@@ -11,14 +11,14 @@ public:
     int day;
 };
 
-void input(Date &date)
+void set(Date &date)
 {
     cin >> date.year;
     cin >> date.month;
     cin >> date.day;
 }
 
-void print(Date &date)
+void get(Date &date)
 {
     cout << date.year << "/" << date.month << "/" << date.day;
 }
@@ -26,7 +26,7 @@ void print(Date &date)
 int main()
 {
     Date date;
-    input(date);
-    print(date);
+    set(date);
+    get(date);
     return 0;
 }
