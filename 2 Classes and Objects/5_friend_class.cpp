@@ -6,10 +6,10 @@ class ClassB; // Forward declaration
 class ClassA
 {
 private:
-    int privateA;
+    int dataA;
 
 public:
-    ClassA() : privateA(0) {}
+    ClassA() : dataA(0) {}
 
     friend class ClassB;
 };
@@ -17,14 +17,14 @@ public:
 class ClassB
 {
 public:
-    void setter(ClassA &objA, int value)
+    void setData(ClassA &objA, int value)
     {
-        objA.privateA = value;
+        objA.dataA = value;
     }
 
-    void getter(ClassA &objA)
+    void getData(ClassA &objA)
     {
-        cout << "ClassA private member: " << objA.privateA << endl;
+        cout << "ClassA private member: " << objA.dataA << endl;
     }
 };
 
@@ -33,8 +33,8 @@ int main()
     ClassA objA;
     ClassB objB;
 
-    objB.setter(objA, 42);
-    objB.getter(objA);
+    objB.setData(objA, 42);
+    objB.getData(objA);
 
     return 0;
 }
