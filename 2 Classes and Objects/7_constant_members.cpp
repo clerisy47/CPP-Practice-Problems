@@ -14,6 +14,7 @@ public:
     }
     void getData() const // constant member function
     {
+        // data = 5 // will cause error
         cout << "data=" << data << endl;
     }
 };
