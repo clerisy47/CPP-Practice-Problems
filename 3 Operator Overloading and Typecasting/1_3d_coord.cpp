@@ -1,19 +1,17 @@
 /* 3d coordinate addition and subtraction*/
 
 #include <iostream>
+#include <math.h>
 using namespace std;
 
 class Coordinate
 {
 private:
-    float x, y, z;
+    float x, y, z, r;
 
 public:
-    Coordinate(float x, float y, float z)
+    Coordinate(float x, float y, float z) : x(x), y(y), z(z), r(sqrt(x * x + y * y + z * z))
     {
-        this->x = x;
-        this->y = y;
-        this->z = z;
     }
 
     // member function (first argument is the class it is defined in itself)
@@ -30,33 +28,15 @@ public:
 
     friend bool operator>(Coordinate &c1, Coordinate &c2)
     {
-        // assuming that x has higher preference
-        if (c1.x != c2.x)
-        {
-            return c1.x > c2.x;
-        }
-        if (c1.y != c2.y)
-        {
-            return c1.y > c2.y;
-        }
-        return c1.z > c2.z;
+        return c1.r > c2.r;
     }
     friend bool operator==(Coordinate &c1, Coordinate &c2)
     {
-        return c1.x == c2.x && c1.y == c2.y && c1.z == c2.z;
+        return c1.r == c2.r;
     }
     friend bool operator<(Coordinate &c1, Coordinate &c2)
     {
-        // assuming that x has higher preference
-        if (c1.x != c2.x)
-        {
-            return c1.x < c2.x;
-        }
-        if (c1.y != c2.y)
-        {
-            return c1.y < c2.y;
-        }
-        return c1.z < c2.z;
+        return c1.r < c2.r;
     }
     void display()
     {
