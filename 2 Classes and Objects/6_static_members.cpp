@@ -1,40 +1,40 @@
 #include <iostream>
 using namespace std;
 
-class staticEg
+class MyClass
 {
 private:
     static int count; // static data member
     int data;
 
 public:
-    staticEg(int data) : data(data)
+    MyClass(int data) : data(data)
     {
         count++;
     }
-    ~staticEg()
+    ~MyClass()
     {
         count--;
     }
-    static void showcount() // static member function
+    static void getCount() // static member function
     {
         cout << "Number of objects at scope currently are: " << count << endl;
     }
-    void showdata()
+    void getData()
     {
         cout << "The data is: " << data << endl;
     }
 };
-int staticEg::count = 0;
+int MyClass::count = 0;
 
 int main()
 {
-    staticEg s1(5);
-    s1.showdata();
-    staticEg::showcount();
-    staticEg s2(2), s3(3);
-    s2.showdata();
-    s3.showdata();
-    staticEg::showcount();
+    MyClass s1(5);
+    s1.getData();
+    MyClass::getCount();
+    MyClass s2(2), s3(3);
+    s2.getData();
+    s3.getData();
+    MyClass::getCount();
     return 0;
 }
