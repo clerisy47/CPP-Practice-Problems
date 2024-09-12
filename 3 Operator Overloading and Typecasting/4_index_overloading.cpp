@@ -1,28 +1,23 @@
 #include <iostream>
 using namespace std;
 
-class MyArr
+class DynamicArr
 {
 private:
-    int arr[5];
+    int *arr;
+    int n;
 
 public:
-    MyArr(int arr[5])
+    DynamicArr(int n) : n(n)
     {
-        for (int i = 0; i <= 4; i++)
-        {
-            this->arr[i] = arr[i];
-        }
+        arr = new int[n];
     }
-    void display()
+    ~DynamicArr()
     {
-        for (int i = 0; i <= 4; i++)
-        {
-            cout << arr[i] << " ";
-        }
+        delete[] arr;
     }
     // must use member function
-    int operator[](int i)
+    int &operator[](int i) // return by reference is used as we need to assign value to each indexes of array
     {
         return arr[i];
     }
@@ -30,11 +25,17 @@ public:
 
 int main()
 {
-    int arr[5] = {1, 2, 3, 4, 5};
-    MyArr a(arr);
-    cout << a[0] << endl;
-    cout << a[1] << endl;
-    cout << a[2] << endl;
-    cout << a[3] << endl;
-    cout << a[4] << endl;
+    int n;
+    cin >> n;
+    DynamicArr d(n);
+    for (int i = 0; i <= n - 1; i++)
+    {
+        int x;
+        cin >> x;
+        d[i] = x;
+    }
+    for (int i = 0; i <= n - 1; i++)
+    {
+        cout << d[i] << " ";
+    }
 }
