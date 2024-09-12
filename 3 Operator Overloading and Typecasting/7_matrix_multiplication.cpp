@@ -7,6 +7,7 @@ private:
     int a[3][3];
 
 public:
+    Matrix() {}
     Matrix(int a[3][3])
     {
         for (int i = 0; i <= 2; i++)
@@ -17,7 +18,17 @@ public:
             }
         }
     }
-    void Display()
+    void input()
+    {
+        for (int i = 0; i <= 2; i++)
+        {
+            for (int j = 0; j <= 2; j++)
+            {
+                cin >> a[i][j];
+            }
+        }
+    }
+    void display()
     {
         for (int i = 0; i <= 2; i++)
         {
@@ -34,7 +45,7 @@ public:
         {
             for (int j = 0; j <= 2; j++) // col2
             {
-                temp[i][j] = 0;              // row1*col2 is products's final dimenstions
+                temp[i][j] = 0;              // row1*col2 is products's final dimensions
                 for (int k = 0; k <= 2; k++) // row2/col1 common elements
                 {
                     temp[i][j] += m1.a[i][k] * m2.a[k][j];
@@ -47,9 +58,9 @@ public:
 
 int main()
 {
-    int a[3][3] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    int b[3][3] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    Matrix M1(a), M2(b);
-    Matrix M3 = M1 * M2;
-    M3.Display();
+    Matrix m1, m2;
+    m1.input();
+    m2.input();
+    Matrix m3 = m1 * m2;
+    m3.display();
 }
