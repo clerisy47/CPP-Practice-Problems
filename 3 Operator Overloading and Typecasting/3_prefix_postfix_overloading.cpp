@@ -4,24 +4,24 @@ using namespace std;
 class MyClass
 {
 private:
-    int ctr;
+    int data;
 
 public:
-    MyClass(int ctr = 0) : ctr(ctr) {}
+    MyClass(int data = 0) : data(data) {}
 
     int getCtr()
     {
-        return ctr;
+        return data;
     }
     // prefix
     friend void operator++(MyClass &d)
     {
-        ++d.ctr;
+        ++d.data;
     }
     // postfix
     friend void operator++(MyClass &d, int) // int is a dummy variable
     {
-        d.ctr++;
+        d.data++;
     }
 };
 
