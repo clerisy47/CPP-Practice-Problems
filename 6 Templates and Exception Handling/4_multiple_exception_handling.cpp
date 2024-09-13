@@ -55,7 +55,7 @@ int main()
         // s.push(5); // Error: stack is full
         cout << s.pop() << endl;
         cout << s.pop() << endl;
-        // cout << s.pop() << endl; // Error: stack is empty
+        cout << s.pop() << endl; // Error: stack is empty
     }
     catch (Stack<int>::Full f)
     {
