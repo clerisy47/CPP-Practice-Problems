@@ -23,8 +23,8 @@ public:
     void display()
     {
         cout << setw(5) << left << id
-             << setw(30) << left << book_name
-             << setw(15) << left << num_books
+             << setw(30) << book_name
+             << setw(15) << num_books
              << setw(15) << right << purchase_date << endl;
     }
 
