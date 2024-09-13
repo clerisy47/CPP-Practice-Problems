@@ -1,20 +1,31 @@
 #include <iostream>
 using namespace std;
 
-template <class T> // default arguments with class templates (optional)
+const int MAX = 10000;
+
+template <class T = int> // default arguments with class templates (optional)
 class MyArray
 {
 private:
-    T arr[1000];
+    T arr[MAX];
     int n;
 
 public:
+    MyArray() {}
     MyArray(T arr[], int n)
     {
         this->n = n;
         for (int i = 0; i <= n - 1; i++)
         {
             this->arr[i] = arr[i];
+        }
+    }
+    void input()
+    {
+        cin >> n;
+        for (int i = 0; i <= n - 1; i++)
+        {
+            cin >> arr[i];
         }
     }
     T findMax()
@@ -34,7 +45,7 @@ public:
     {
         for (int i = 0; i <= n - 2; i++)
         {
-            for (int j = i; j <= n - 2 - i; j++)
+            for (int j = 0; j <= n - 2 - i; j++)
             {
                 if (arr[j] > arr[j + 1])
                 {
@@ -49,17 +60,35 @@ public:
     {
         for (int i = 0; i <= n - 1; i++)
         {
-            cout << arr[i] << endl;
+            cout << arr[i] << " ";
         }
+    }
+};
+
+template <class T1, class T2> // Multiple argument template
+class MyPair
+{
+private:
+    T1 first;
+    T2 second;
+
+public:
+    MyPair(T1 first, T2 second) : first(first), second(second) {}
+    void display()
+    {
+        cout << endl
+             << first << " " << second << endl;
     }
 };
 
 int main()
 {
-    int a[5] = {1, 5, 4, 2, 3};
-    MyArray<int> b(a, 5);
-    cout << b.findMax() << endl;
-    b.sort();
-    b.display();
+    MyArray<> a; // Using default argument
+    a.input();
+    cout << a.findMax() << endl;
+    a.sort();
+    a.display();
+    MyPair<char *, int> p("Ram", 3);
+    p.display();
     return 0;
 }
