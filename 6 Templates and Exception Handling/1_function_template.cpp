@@ -12,15 +12,19 @@ T myMax(T a, T b)
     return b;
 }
 
-// overloading template function with template function of 2 paramters
-template <class T1, class T2>
-T1 myMax(T1 a, T2 b)
+// overloading template function with template function of 3 paramters
+template <class T>
+T myMax(T a, T b, T c)
 {
-    if (a > b)
+    if (a > b && a > c)
     {
         return a;
     }
-    return b;
+    if (b > c)
+    {
+        return b;
+    }
+    return c;
 }
 
 // overloading template function with function
@@ -35,11 +39,11 @@ char *myMax(char *a, char *b)
 
 int main()
 {
-    int a = 1, b = 2;
-    float c = 3;
-    char *d = "abc";
-    char *e = "def";
+    int a = 1, b = 2, c = 5;
+    float d = 3.4;
+    char *e = "abc";
+    char *f = "def";
     cout << myMax(a, b) << endl;
-    cout << myMax(a, c) << endl;
-    cout << myMax(d, e) << endl;
+    cout << myMax(a, b, c) << endl;
+    cout << myMax(e, f) << endl;
 }
